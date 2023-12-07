@@ -12,10 +12,13 @@ from .PDFIngestor import PDFIngestor
 from .IngestorInterface import IngestorInterface
 
 class Ingestor(IngestorInterface):
+    """General Ingestor encapsulates all specific ingestors."""
+    
     importers = [TXTIngestor, CSVIngestor, DocxIngestor, PDFIngestor]
     
     @classmethod
     def parse(cls, path:str) -> List[QuoteModel]:
+        """Select a proper ingestor & parse contents based on file extension."""
         for importer in cls.importers:
             if importer.can_ingest(path):
                 return importer.parse(path)
