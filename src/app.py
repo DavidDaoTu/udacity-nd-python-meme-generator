@@ -77,7 +77,7 @@ def meme_post():
         author = request.form.get('author')
     except Exception as e:
         print(e)
-        return None
+        abort(400, 'Empty image_url')
     
     try:
         print(f'image_url = {image_url}, \n body = {body}, \n author = {author}')
@@ -88,7 +88,7 @@ def meme_post():
             img.write(respone.content)            
     except Exception as e:
         print(f'Failed to download or save image from image_url = "{image_url}"!')
-        return None
+        return abort(404, 'Failed to download or save image')
     
     # 2. Use the meme object to generate a meme using this temp
     #    file and the body and author form paramaters.
