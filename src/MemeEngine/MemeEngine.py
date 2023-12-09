@@ -38,9 +38,15 @@ class MemeEngine:
                         font=fnt, align='center')            
 
             # Step 4: Saving the meme
-            if not os.path.isdir(self.outdir):
-                os.mkdir(self.outdir)
-                
-            new_path = os.path.join(self.outdir, os.path.basename(img_path))            
+            new_img_name = f'meme_{os.path.basename(img_path)}'
+            new_path = MemeEngine.build_img_path(self.outdir, 
+                                                 new_img_name)
             img.save(new_path)
             return new_path
+    
+    @staticmethod
+    def build_img_path(dir:str, img_name:str) -> str:
+        """Create directory & return image path."""
+        if not os.path.isdir(dir):
+            os.mkdir(dir)           
+        return os.path.join(dir, img_name)
