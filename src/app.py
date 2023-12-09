@@ -3,7 +3,7 @@ import os
 import requests
 from flask import Flask, render_template, abort, request
 
-# WIP: Import your Ingestor and MemeEngine classes
+# Import your Ingestor and MemeEngine classes
 from QuoteEngine import Ingestor
 from MemeEngine import MemeEngine
 
@@ -20,7 +20,7 @@ def setup():
                    './_data/DogQuotes/DogQuotesPDF.pdf',
                    './_data/DogQuotes/DogQuotesCSV.csv']
 
-    # WIP: Use the Ingestor class to parse all files in the
+    # Use the Ingestor class to parse all files in the
     # quote_files variable
     quotes = []
     for file in quote_files:
@@ -28,7 +28,7 @@ def setup():
 
     images_path = "./_data/photos/dog/"
 
-    # WIP: Use the pythons standard library os class to find all
+    # Use the pythons standard library os class to find all
     # images within the images images_path directory
     imgs = []
     for root, dirs, files in os.walk(images_path):
@@ -44,7 +44,6 @@ quotes, imgs = setup()
 def meme_rand():
     """ Generate a random meme """
 
-    # @WIP:
     # Use the random python standard library class to:
     # 1. select a random image from imgs array
     img = random.choice(imgs)    
@@ -66,7 +65,6 @@ def meme_form():
 def meme_post():
     """ Create a user defined meme """
 
-    # @WIP:
     # 1. Use requests to save the image from the image_url
     #    form param to a temp local file.
     try:

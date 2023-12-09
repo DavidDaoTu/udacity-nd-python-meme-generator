@@ -27,7 +27,7 @@ class MemeEngine:
             
             # Step 3.2: Draw quote
             x_text = random.randint(5, width // 2)
-            y_text = random.randint(5, height - height // 15)
+            y_text = random.randint(5, height - height // 10)
             
             # Draw meme text
             draw.text((x_text, y_text), text, fill='black', 
