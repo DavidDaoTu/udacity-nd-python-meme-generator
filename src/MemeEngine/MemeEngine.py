@@ -43,3 +43,4 @@ class MemeEngine:
                 
             new_path = os.path.join(self.outdir, os.path.basename(img_path))            
             img.save(new_path)
+            return new_path
