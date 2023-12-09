@@ -20,7 +20,7 @@ class MemeEngine:
             # Step 3: Draw a quote into the resized image
             
             # Step 3.1: Get font
-            fnt = ImageFont.truetype('fonts/LilitaOne-Regular.ttf', size=20)
+            fnt = ImageFont.truetype('MemeEngine/fonts/LilitaOne-Regular.ttf', size=20)
             
             # Step 3.1: Get a drawing context
             draw = ImageDraw.Draw(img)
